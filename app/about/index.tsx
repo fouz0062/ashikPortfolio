@@ -1,9 +1,9 @@
-import profile from '@/assets/images/profile.jpg';
+import BottomNav from '@/components/BottomNav';
 import { Poppins_700Bold, useFonts } from '@expo-google-fonts/poppins';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import profile from '../../assets/images/profile.jpg';
 export default function Index() {
-  
   const [fontsLoaded] = useFonts({
     Poppins_700Bold,
   });
@@ -14,14 +14,20 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageWrapper}>
-        <Image source={profile} style={styles.profile} />
+      <View style={styles.content}>
+        <ScrollView>
+          <View style={styles.imageWrapper}>
+            <Image source={profile} style={styles.profile} />
+          </View>
+          <Text style={styles.title}>Mohamed Ashik</Text>
+          <View style={styles.description}>
+            <Text style={{paddingBottom:10}}>I’m a Service Fulfillment Specialist with 8+ years of experience leading logistics and replenishment projects at IKEA. My work blends operational strategy with technical expertise in Python, SQL, and Microsoft Power Platform including Power BI and Power Automate to streamline supply chain systems and drive efficiency.</Text>
+           <Text style={{paddingBottom:10}}> With a Master’s in Product Design & Development and certifications in rapid prototyping, project quality, and data modeling, I bring a hands-on, solution-focused mindset to every challenge. I’ve also contributed to social impact through volunteering with Røde Kors Hovedstaden, coordinating logistics between donors and Red Cross butik locations.</Text>
+            <Text style={{paddingBottom:10}}>I thrive in hybrid environments, lead with precision, and am passionate about building systems that work smarter.</Text>
+          </View>
+        </ScrollView>
       </View>
-      <Text style={styles.title}>Mohamed Ashik</Text>
-      <TouchableOpacity style={styles.btn}><Text style={styles.btnTxt}>About</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.btn}><Text style={styles.btnTxt}>Skills</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.btn}><Text style={styles.btnTxt}>Experience</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.btn}><Text style={styles.btnTxt}>Contact</Text></TouchableOpacity>
+   <BottomNav />
     </View>
   );
 }
@@ -30,13 +36,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f8f8ff',
-    padding: 20,
   },
   imageWrapper: {
     alignSelf: 'center',
     marginTop: 50,
-    width: 200,
-    height: 200,
+    width: 100,
+    height: 100,
     borderRadius: 100,
     borderColor: '#1a2b4c',
     borderWidth: 2,
@@ -54,21 +59,18 @@ const styles = StyleSheet.create({
     fontSize: 28,
     marginTop: 10,
     fontFamily: 'Poppins_700Bold',
+    padding: 20,
   },
-  btn: {
-    display: 'flex',
-    alignItems: 'center',
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    backgroundColor: '#1a2b4c',
-    marginVertical: 5,
-    width: 100,
-    marginHorizontal: 'auto',
-    borderRadius:10
+  content: {
+    flex: 1,
+    justifyContent: 'flex-start',
   },
-    btnTxt: {
-      color: '#f8f8ff',
-      fontSize: 15,
-      paddingVertical:2
-  }
+  description: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#333',
+    padding: 20,
+    textAlign: 'justify',
+  },
+
 });

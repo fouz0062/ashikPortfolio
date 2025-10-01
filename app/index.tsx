@@ -1,10 +1,11 @@
-import profile from '@/assets/images/profile.jpg';
-import { Poppins_700Bold, useFonts } from '@expo-google-fonts/poppins';
-import { useRouter } from 'expo-router';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import profile from "@/assets/images/profile.jpg";
+
+import { Poppins_700Bold, useFonts } from "@expo-google-fonts/poppins";
+import { useRouter } from "expo-router";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
-  const navigate = useRouter()
+  const navigate = useRouter();
   const [fontsLoaded] = useFonts({
     Poppins_700Bold,
   });
@@ -19,10 +20,30 @@ export default function Index() {
         <Image source={profile} style={styles.profile} />
       </View>
       <Text style={styles.title}>Mohamed Ashik</Text>
-      <TouchableOpacity style={styles.btn} onPress={()=>navigate.push('/about')}><Text style={styles.btnTxt}>About</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.btn}><Text style={styles.btnTxt}>Skills</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.btn}><Text style={styles.btnTxt}>Experience</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.btn}><Text style={styles.btnTxt}>Contact</Text></TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => navigate.push("/about")}
+      >
+        <Text style={styles.btnTxt}>About</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => navigate.push("/skills")}
+      >
+        <Text style={styles.btnTxt}>Skills</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => navigate.push("/experience")}
+      >
+        <Text style={styles.btnTxt}>Experience</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => navigate.push("/contact")}
+      >
+        <Text style={styles.btnTxt}>Contact</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -30,46 +51,46 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f8ff',
+    backgroundColor: "#f8f8ff",
     padding: 20,
   },
   imageWrapper: {
-    alignSelf: 'center',
+    alignSelf: "center",
     marginTop: 50,
     width: 200,
     height: 200,
     borderRadius: 100,
-    borderColor: '#1a2b4c',
+    borderColor: "#1a2b4c",
     borderWidth: 2,
     elevation: 8,
-    backgroundColor: '#fff',
-    overflow: 'hidden',
+    backgroundColor: "#fff",
+    overflow: "hidden",
   },
   profile: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     borderRadius: 100,
   },
   title: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 28,
     marginTop: 10,
-    fontFamily: 'Poppins_700Bold',
+    fontFamily: "Poppins_700Bold",
   },
   btn: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     paddingVertical: 5,
     paddingHorizontal: 10,
-    backgroundColor: '#1a2b4c',
+    backgroundColor: "#1a2b4c",
     marginVertical: 5,
     width: 100,
-    marginHorizontal: 'auto',
-    borderRadius:10
+    marginHorizontal: "auto",
+    borderRadius: 10,
   },
-    btnTxt: {
-      color: '#f8f8ff',
-      fontSize: 15,
-      paddingVertical:2
-  }
+  btnTxt: {
+    color: "#f8f8ff",
+    fontSize: 15,
+    paddingVertical: 2,
+  },
 });
